@@ -6,17 +6,28 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="App">Start</div>
-    <div class="carousel-container">
-      <button id="prevBtn" class="btn prevBtn">Previous</button>
-      <div class="carousel">
-        <div class="slide" style="background-image: url('image1.jpg')"></div>
-        <div class="slide" style="background-image: url('image2.jpg')"></div>
-        <div class="slide" style="background-image: url('image3.jpg')"></div>
+    <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <img src="./image1.jpg" alt="" />
+          </li>
+          <li class="splide__slide">
+            <img src="./image2.jpg" alt="" />
+          </li>
+          <li class="splide__slide">
+            <img src="./image3.jpg" alt="" />
+          </li>
+        </ul>
       </div>
-      <button id="nextBtn">Next</button>
-    </div>
-    <div class="carousel"></div>
-    <button class="btn"></button>
+    </section>
+    <section id="toDo">
+      <div class="container">
+        <h1>Task List</h1>
+        <input type="text" id="newTask" placeholder="Add a new task" />
+        <button id="addTaskBtn">Add Task</button>
+        <ul id="taskList"></ul>
+      </div>
+    </section>
   </body>
 </html>

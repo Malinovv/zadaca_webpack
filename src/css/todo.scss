@@ -1,0 +1,21 @@
+.container {
+  text-align: center;
+}
+
+input {
+  padding: 8px;
+}
+
+button {
+  padding: 8px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li.completed {
+  color: green;
+}
