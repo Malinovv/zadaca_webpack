@@ -45,6 +45,7 @@ function createButton(text, className, clickHandler) {
 
 function onClickComplete(event) {
   let listElement = event.target.parentElement;
+  listElement.style.transition = "opacity 0.3s ease-out";
   listElement.classList.toggle("completed");
 }
 
@@ -57,14 +58,32 @@ function onClickEdit(event) {
 
   createBtn.innerHTML = "Update Task";
   createBtn.removeEventListener("click", onClickCreateTask);
+
+  listElement.animate(
+    [
+      { transform: "translateX(-5px)" },
+      { transform: "translateX(5px)" },
+      { transform: "translateX(-5px)" },
+      { transform: "translateX(0)" },
+    ],
+    {
+      duration: 500,
+      iterations: 1,
+    }
+  );
+
   createBtn.addEventListener("click", onClickCreateTask);
 }
 
 function onClickDelete(event) {
   let element = event.target.closest("li");
-  element.remove();
-  currentlyEditedTask = null;
-  createBtn.innerHTML = "Add Task";
+  element.style.transition = "transform 0.8s ease-out";
+  element.style.transform = "translateX(-100%)";
+  element.addEventListener("transitionend", function () {
+    element.remove();
+    currentlyEditedTask = null;
+    createBtn.innerHTML = "Add Task";
+  });
 }
 
 function toDoInit() {
